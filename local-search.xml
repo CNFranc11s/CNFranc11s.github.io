@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title></title>
+    <link href="/2022/08/01/%E5%88%9D%E8%AF%86pyspark/"/>
+    <url>/2022/08/01/%E5%88%9D%E8%AF%86pyspark/</url>
+    
+    <content type="html"><![CDATA[<h1 id="PySpark的基础使用"><a href="#PySpark的基础使用" class="headerlink" title="PySpark的基础使用"></a><strong>PySpark的基础使用</strong></h1><h2 id="什么是PySpark"><a href="#什么是PySpark" class="headerlink" title="什么是PySpark"></a>什么是PySpark</h2><p>故名思意，PySpark是Spark的Python API，方便我们通过python代码操作Spark，那么什么是Spark</p><h3 id="什么是Spark"><a href="#什么是Spark" class="headerlink" title="什么是Spark"></a>什么是Spark</h3><p><strong>Apache Spark</strong> 是一种用于大数据工作负载的分布式开源处理系统。它使用内存中缓存和优化的查询执行方式，可针对任何规模的数据进行快速分析查询。它提供使用 Java、Scala、Python 和 R 语言的开发 API，支持跨多个工作负载重用代码—批处理、交互式查询、实时分析、机器学习和图形处理等。您会发现各行业的众多组织都使用它，其中包括 FINRA、Yelp、Zillow、DataXu、Urban Institute 和 CrowdStrike。Apache Spark 已经成为最受欢迎的大数据分布式处理框架之一，在 2017 年拥有 365000 名会定期参加聚会的会员。</p><p>refer link:  <a href="https://aws.amazon.com/cn/big-data/what-is-spark/">https://aws.amazon.com/cn/big-data/what-is-spark/</a></p><h3 id="Hadoop"><a href="#Hadoop" class="headerlink" title="Hadoop"></a>Hadoop</h3><p>说到Spark其实就离不开Hadoop的话题，Hadoop 是一种开源框架，它将 Hadoop 分布式文件系统 (HDFS) 用于存储，将 YARN 作为管理由不同应用程序所使用的计算资源的方式，并且实现 MapReduce 编程模型来充当执行引擎。 </p><p>Hadoop：</p><ul><li>HDFS[Hadoop Distribute File System]<ul><li>分布式文件系统</li></ul></li><li>MapReduce<ul><li>Hadoop MapReduce 是一种用于处理大数据集的编程模型，它采用并行的分布式算法。MapReduce 所面对的一项挑战是它要通过连续多步骤流程来运行某项作业。在每个步骤中，MapReduce 要读取来自集群的数据，执行操作，并将结果写到 HDFS。因为每个步骤都需要磁盘读取和写入，磁盘 I&#x2F;O 的延迟会导致 MapReduce 作业变慢。</li></ul></li></ul><p>开发 Spark 的初衷就是为了突破 MapReduce 的这些限制，它可以执行内存中处理，减少作业中的步骤数量，并且跨多项并行操作对数据进行重用。借助于 Spark，将数据读取到内存、执行操作和写回结果仅需要一个步骤，大大地加快了执行的速度。Spark 还能使用内存中缓存显著加快在相同数据集上重复调用某函数的机器学习算法的速度，进而重新使用数据。数据重用通过在弹性分布式数据集 (RDD) 上创建数据抽象—DataFrames 得以实现，而弹性分布式数据集是一个缓存在内存中并在多项 Spark 操作中重新使用的对象集合。它大幅缩短了延迟，使 Spark 比 MapReduce 快数倍，在进行机器学习和交互式分析时尤其明显。</p><h2 id="RDD-Resilient-Distribute-Dataset"><a href="#RDD-Resilient-Distribute-Dataset" class="headerlink" title="RDD[Resilient Distribute Dataset]"></a>RDD[Resilient Distribute Dataset]</h2><p>在 Spark 2.0 之前，Spark 的主要编程接口是弹性分布式数据集（RDD）。在 Spark 2.0 之后，RDD 被 Dataset 取代，它像 RDD 一样是强类型的，但在底层进行了更丰富的优化。仍然支持 RDD 接口，您可以在RDD 编程指南中获得更详细的参考。但是，我们强烈建议您改用 Dataset，它的<strong>性能</strong>比 RDD 更好。</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>test-blog</title>
     <link href="/2022/07/28/test-blog/"/>
     <url>/2022/07/28/test-blog/</url>
