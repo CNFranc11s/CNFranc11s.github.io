@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>Tensor Basics</title>
+    <link href="/2022/08/02/Pytorch-tensor/"/>
+    <url>/2022/08/02/Pytorch-tensor/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Tensor-Basics"><a href="#Tensor-Basics" class="headerlink" title="Tensor Basics"></a>Tensor Basics</h1><h2 id="什么是Tensor"><a href="#什么是Tensor" class="headerlink" title="什么是Tensor"></a>什么是Tensor</h2><p>Tensor实际上就是Numpy中的数组在Pytorch中的一种形式，根据维度的不同有一些特殊的叫法</p><p>下边是一些常见的操作，用以记录<br>查看tensor版本：</p><p><code>torch.__version__</code></p><p>从Numpy Array 生成Tensor<br><strong>注意这里的变量传递是指针，实际上指向一个内存地址，因此任何对arr的修改都会作用在x上</strong></p><p><code>x = torch.from_numpy(arr)</code></p><h2 id="torch-Tensor-vs-torch-tensor"><a href="#torch-Tensor-vs-torch-tensor" class="headerlink" title="torch.Tensor vs. torch.tensor"></a>torch.Tensor vs. torch.tensor</h2><p><code>torch.tensor()</code>生成的tensor默认为int32位<br><code>torch.Tensor()</code>生成的tensor默认为float32位</p><h2 id="tensor的形状修改"><a href="#tensor的形状修改" class="headerlink" title="tensor的形状修改"></a>tensor的形状修改</h2><p>对于多维的tensor，可以通过<code>view</code>或<code>reshape</code>进行修改，也都是浅拷贝<br><code>x = x.view(2,3)</code>  </p><p>当<code>-1</code>参数被传入，代表这个维度被省略，根据另一个传入的参数自动计算<br><code>x = x.view(2,-1)</code></p><h2 id="tensor的运算"><a href="#tensor的运算" class="headerlink" title="tensor的运算"></a>tensor的运算</h2><p>相乘<code>a.mul(b)</code>  </p><p>相乘(但会改变a)<code>a.mul_(b)</code></p><p>点乘<code>a.mm(b)</code>&#x3D;<code>torch.mm(a,b)</code>&#x3D;<code>a @ b</code></p><p>查看tensor长度<code>x.numel()</code></p><p>normalize<code>x.norm()</code></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Pytorch</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>PySpark的基础使用</title>
     <link href="/2022/08/01/%E5%88%9D%E8%AF%86pyspark/"/>
     <url>/2022/08/01/%E5%88%9D%E8%AF%86pyspark/</url>
@@ -28,19 +47,6 @@
     <url>/2022/07/28/test-blog/</url>
     
     <content type="html"><![CDATA[<p><img src="/test-blog/C_svg_C_5.svg"></p>]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>test-blog</title>
-    <link href="/2022/07/28/Pytorch-tensor/"/>
-    <url>/2022/07/28/Pytorch-tensor/</url>
-    
-    <content type="html"><![CDATA[<h1 id="Tensor-Basics"><a href="#Tensor-Basics" class="headerlink" title="Tensor Basics"></a>Tensor Basics</h1><h2 id="什么是Tensor"><a href="#什么是Tensor" class="headerlink" title="什么是Tensor"></a>什么是Tensor</h2><p>Tensor实际上就是Numpy中的数组在Pytorch中的一种形式，根据维度的不同有一些特殊的叫法</p><p>下边是一些常见的操作，用以记录<br>查看tensor版本：</p><p><code>torch.__version__</code></p><p>从Numpy Array 生成Tensor<br><strong>注意这里的变量传递是指针，实际上指向一个内存地址，因此任何对arr的修改都会作用在x上</strong></p><p><code>x = torch.from_numpy(arr)</code></p><h2 id="torch-Tensor-vs-torch-tensor"><a href="#torch-Tensor-vs-torch-tensor" class="headerlink" title="torch.Tensor vs. torch.tensor"></a>torch.Tensor vs. torch.tensor</h2><p><code>torch.tensor()</code>生成的tensor默认为int32位<br><code>torch.Tensor()</code>生成的tensor默认为float32位</p><h2 id="tensor的形状修改"><a href="#tensor的形状修改" class="headerlink" title="tensor的形状修改"></a>tensor的形状修改</h2><p>对于多维的tensor，可以通过<code>view</code>或<code>reshape</code>进行修改，也都是浅拷贝<br><code>x = x.view(2,3)</code>  </p><p>当<code>-1</code>参数被传入，代表这个维度被省略，根据另一个传入的参数自动计算<br><code>x = x.view(2,-1)</code></p><h2 id="tensor的运算"><a href="#tensor的运算" class="headerlink" title="tensor的运算"></a>tensor的运算</h2><p>相乘<code>a.mul(b)</code>  </p><p>相乘(但会改变a)<code>a.mul_(b)</code></p><p>点乘<code>a.mm(b)</code>&#x3D;<code>torch.mm(a,b)</code>&#x3D;<code>a @ b</code></p><p>查看tensor长度<code>x.numel()</code></p><p>normalize<code>x.norm()</code></p>]]></content>
     
     
     
