@@ -4,6 +4,82 @@
   
   
   <entry>
+    <title>A Classification Demo for Artifical Nerual Network</title>
+    <link href="/2022/08/04/Pytorch-ANN-Classfication/"/>
+    <url>/2022/08/04/Pytorch-ANN-Classfication/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Pytorch</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Data Fabric</title>
+    <link href="/2022/08/04/data-fabric/"/>
+    <url>/2022/08/04/data-fabric/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Data-Fabric"><a href="#Data-Fabric" class="headerlink" title="Data Fabric"></a>Data Fabric</h1><h2 id="Backgroud"><a href="#Backgroud" class="headerlink" title="Backgroud"></a>Backgroud</h2><p>在企业中由于业务的不断发展，导致有许多无法被有效利用的数据产生，这些数据我们称为暗数据。<br>暗数据产生的原因有很多，基本上都是由于工具的不统一或者技能的不同导致各种各样的数据孤岛，也就产生了许多暗数据</p><h2 id="什么是Data-Fabric"><a href="#什么是Data-Fabric" class="headerlink" title="什么是Data Fabric"></a>什么是Data Fabric</h2><p>Data Fabric 是一个信息网络，数据管理平台</p><ul><li>发现</li><li>治理</li><li>整理</li><li>统筹</li></ul><h2 id="为什么使用Data-Fabric"><a href="#为什么使用Data-Fabric" class="headerlink" title="为什么使用Data Fabric"></a>为什么使用Data Fabric</h2><p>可以给企业带来非常巨大的商业改善</p><h2 id="如何使用Data-Fabric"><a href="#如何使用Data-Fabric" class="headerlink" title="如何使用Data Fabric"></a>如何使用Data Fabric</h2><p><strong>IBM CP4D</strong> 让Data Fabric的概念变为现实</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Draft</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>A Regression Demo for Artifical Nerual Network</title>
+    <link href="/2022/08/04/Pytorch-ANN-Regression/"/>
+    <url>/2022/08/04/Pytorch-ANN-Regression/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Pytorch</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>在VSCODE中添加代码模板</title>
+    <link href="/2022/08/04/markdown-snippet/"/>
+    <url>/2022/08/04/markdown-snippet/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Backgroud"><a href="#Backgroud" class="headerlink" title="Backgroud"></a>Backgroud</h1><p>在写博客时,hexo的固定格式总是需要重复输入,很繁琐,因此找到这个方法,配置后可以在新建markdown文档时自动添加模板内容,同时这个方法也适用于其他格式的文件</p><h1 id="Step1-打开快速提示"><a href="#Step1-打开快速提示" class="headerlink" title="Step1.打开快速提示"></a>Step1.打开快速提示</h1><p>打开VSCODE的Setting<br><code>Ctrl + Shift + P</code><br>选择<br><code>Preferences:Open Settings(JSON)</code><br>在文件的最后添加  </p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-attr">&quot;[markdown]&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;editor.quickSuggestions&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><br>    <span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure><h1 id="Step2-设置markdown文件的模板"><a href="#Step2-设置markdown文件的模板" class="headerlink" title="Step2.设置markdown文件的模板"></a>Step2.设置markdown文件的模板</h1><p>1.<code>Ctrl + Shift + P</code><br>2.选择<code>Configure User Snippets</code><br>3.选择<code>markdown</code></p><h1 id="Step3-配置自己的模板"><a href="#Step3-配置自己的模板" class="headerlink" title="Step3.配置自己的模板"></a>Step3.配置自己的模板</h1><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span> 模板的名称<br><span class="hljs-string">&quot;Start of a blog&quot;</span>: &#123;<br><span class="hljs-regexp">//</span> 模板触发词<br><span class="hljs-string">&quot;prefix&quot;</span>: <span class="hljs-string">&quot;start&quot;</span>,<br><span class="hljs-regexp">//</span> 模板内容<br><span class="hljs-string">&quot;body&quot;</span>: [<br><span class="hljs-string">&quot;---&quot;</span>,<br><span class="hljs-string">&quot;title: &quot;</span>,<br><span class="hljs-string">&quot;date: &quot;</span>,<br><span class="hljs-string">&quot;tags: &quot;</span>,<br><span class="hljs-string">&quot;---&quot;</span><br>],<br><span class="hljs-regexp">//</span> 模板描述<br><span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;Start of a blog&quot;</span><br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Vscode</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Artifical Nerual Network</title>
     <link href="/2022/08/03/Pytorch-ANN-NN-Start/"/>
     <url>/2022/08/03/Pytorch-ANN-NN-Start/</url>
