@@ -24,7 +24,7 @@
 <meta property="og:description" content="Backgroud在写博客时,hexo的固定格式总是需要重复输入,很繁琐,因此找到这个方法,配置后可以在新建markdown文档时自动添加模板内容,同时这个方法也适用于其他格式的文件 Step1.打开快速提示打开VSCODE的SettingCtrl + Shift + P选择Preferences:Open Settings(JSON)在文件的最后添加   123&quot;[markdown]&amp;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-08-03T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-08-04T06:53:16.667Z">
+<meta property="article:modified_time" content="2022-08-18T07:07:57.835Z">
 <meta property="article:author" content="Franc11s">
 <meta property="article:tag" content="Vscode">
 <meta name="twitter:card" content="summary_large_image">
@@ -236,7 +236,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          609 字
+          836 字
         
       </span>
     
@@ -247,7 +247,7 @@
         
         
         
-          6 分钟
+          7 分钟
         
       </span>
     
@@ -294,7 +294,8 @@
 <h1 id="Step1-打开快速提示"><a href="#Step1-打开快速提示" class="headerlink" title="Step1.打开快速提示"></a>Step1.打开快速提示</h1><p>打开VSCODE的Setting<br><code>Ctrl + Shift + P</code><br>选择<br><code>Preferences:Open Settings(JSON)</code><br>在文件的最后添加  </p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-attr">&quot;[markdown]&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;editor.quickSuggestions&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><br>    <span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
 <h1 id="Step2-设置markdown文件的模板"><a href="#Step2-设置markdown文件的模板" class="headerlink" title="Step2.设置markdown文件的模板"></a>Step2.设置markdown文件的模板</h1><p>1.<code>Ctrl + Shift + P</code><br>2.选择<code>Configure User Snippets</code><br>3.选择<code>markdown</code></p>
-<h1 id="Step3-配置自己的模板"><a href="#Step3-配置自己的模板" class="headerlink" title="Step3.配置自己的模板"></a>Step3.配置自己的模板</h1><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span> 模板的名称<br><span class="hljs-string">&quot;Start of a blog&quot;</span>: &#123;<br>	<span class="hljs-regexp">//</span> 模板触发词<br>		<span class="hljs-string">&quot;prefix&quot;</span>: <span class="hljs-string">&quot;start&quot;</span>,<br>	<span class="hljs-regexp">//</span> 模板内容<br>		<span class="hljs-string">&quot;body&quot;</span>: [<br>			<span class="hljs-string">&quot;---&quot;</span>,<br>			<span class="hljs-string">&quot;title: &quot;</span>,<br>			<span class="hljs-string">&quot;date: &quot;</span>,<br>			<span class="hljs-string">&quot;tags: &quot;</span>,<br>			<span class="hljs-string">&quot;---&quot;</span><br>			],<br>	<span class="hljs-regexp">//</span> 模板描述<br>		<span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;Start of a blog&quot;</span><br>	&#125;<br></code></pre></td></tr></table></figure>
+<h1 id="Step3-配置自己的模板"><a href="#Step3-配置自己的模板" class="headerlink" title="Step3.配置自己的模板"></a>Step3.配置自己的模板</h1><p>这里$1 $2的位置表示在导入模板后，光标所在的位置，以及按下<code>tab</code>键后光标跳转的位置<br>date部分添加了根据当前时间动态生成的语法</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs dart"><span class="hljs-comment">// 模板的名称</span><br><span class="hljs-string">&quot;Start of a blog&quot;</span>: &#123;<br>	<span class="hljs-comment">// 模板触发词</span><br>		<span class="hljs-string">&quot;prefix&quot;</span>: <span class="hljs-string">&quot;start&quot;</span>,<br>	<span class="hljs-comment">// 模板内容</span><br>		<span class="hljs-string">&quot;body&quot;</span>: [<br>			<span class="hljs-string">&quot;---&quot;</span>,<br>			<span class="hljs-string">&quot;title: <span class="hljs-subst">$1</span>&quot;</span>,<br>			<span class="hljs-string">&quot;date: <span class="hljs-subst">$&#123;CURRENT_YEAR&#125;</span>-<span class="hljs-subst">$&#123;CURRENT_MONTH&#125;</span>-<span class="hljs-subst">$&#123;CURRENT_DATE&#125;</span> <span class="hljs-subst">$&#123;CURRENT_HOUR&#125;</span>:<span class="hljs-subst">$&#123;CURRENT_MINUTE&#125;</span>:<span class="hljs-subst">$&#123;CURRENT_SECOND&#125;</span>&quot;</span>,<br>			<span class="hljs-string">&quot;tags: <span class="hljs-subst">$2</span>&quot;</span>,<br>			<span class="hljs-string">&quot;---&quot;</span><br>			],<br>	<span class="hljs-comment">// 模板描述</span><br>		<span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;Start of a blog&quot;</span><br>	&#125;<br></code></pre></td></tr></table></figure>
                 
               </div>
             
