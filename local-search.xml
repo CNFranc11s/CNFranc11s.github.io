@@ -4,6 +4,44 @@
   
   
   <entry>
+    <title>Neo4j的一些操作笔记</title>
+    <link href="/2022/08/18/neo4j/"/>
+    <url>/2022/08/18/neo4j/</url>
+    
+    <content type="html"><![CDATA[<p>neo4j是noSQL的一种具体产品,在构建知识图谱或其他的非关系型数据中普遍使用</p><h2 id="neo4j的安装"><a href="#neo4j的安装" class="headerlink" title="neo4j的安装"></a>neo4j的安装</h2><h2 id="neo4j的基本操作"><a href="#neo4j的基本操作" class="headerlink" title="neo4j的基本操作"></a>neo4j的基本操作</h2><h3 id="neo4j中的基本概念"><a href="#neo4j中的基本概念" class="headerlink" title="neo4j中的基本概念"></a>neo4j中的基本概念</h3><ul><li>节点<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;节点是neo4j的一个单元,一个节点可以添加一个类型以及添加任意多的属性<ul><li>节点类型<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;节点类型可以类比oop中的类,一个节点需要指定类型,比如张三是一个人:<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<code>(n:Person &#123;name:&quot;张三&quot;&#125;) </code><br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;张三养的狗叫做李四:<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<code>(d:Dog &#123;name:&quot;李四&quot;, master:&quot;张三&quot;&#125;)</code></li><li>节点属性<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;上边在类型后边添加的对象就是节点的属性</li></ul></li><li>关系<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;关系表示两个节点之间的关系，关系可以任意指定<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<code>(n) -[:own]-&gt; (d)</code></li></ul><h3 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h3><p>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;下边的指令会创建名为张三的Person节点,无论该节点是否存在<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<code>CREATE (p:Person &#123;name:&quot;张三&quot;&#125;)</code></p><h3 id="修改数据"><a href="#修改数据" class="headerlink" title="修改数据"></a>修改数据</h3><p>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;下边的指令会查询名为张三的Person节点,如果没有则创建<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<code>MERGE (p:Person &#123;name:&quot;张三&quot;&#125;)</code></p><h3 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h3><p>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;删除所有节点,如果节点上有关系则不能被删除<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<code>MATCH (p:Person) DELETE p</code><br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;如果想删除有关系的节点和对应的关系<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<code>MATCH (p:Person) DETACH DELETE p</code>  </p><h3 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h3><p>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<code>MATCH (p:Person) RETURN p</code></p><p>相关连接:<br>[1]: <a href="https://neo4j.com/developer/cypher/updating/#cypher-merge">https://neo4j.com/developer/cypher/updating/#cypher-merge</a></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>neo4j</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Python操作JSON文件的一些memo</title>
+    <link href="/2022/08/18/BasicPython-json/"/>
+    <url>/2022/08/18/BasicPython-json/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Python操作JSON文件的一些memo"><a href="#Python操作JSON文件的一些memo" class="headerlink" title="Python操作JSON文件的一些memo"></a>Python操作JSON文件的一些memo</h1><h2 id="Python-读入JSON数据"><a href="#Python-读入JSON数据" class="headerlink" title="Python 读入JSON数据"></a>Python 读入JSON数据</h2><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver">import json<br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(json_file_path ,<span class="hljs-string">&quot;r&quot;</span>) <span class="hljs-keyword">as</span> f:<br>        json_data = json.<span class="hljs-built_in">load</span>(f)<br></code></pre></td></tr></table></figure><h2 id="Python输出JSON数据"><a href="#Python输出JSON数据" class="headerlink" title="Python输出JSON数据"></a>Python输出JSON数据</h2><figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs fsharp"><span class="hljs-keyword">with</span> <span class="hljs-keyword">open</span>(json_file_path ,<span class="hljs-string">&quot;w&quot;</span>) <span class="hljs-keyword">as</span> f<span class="hljs-operator">:</span><br>        json.dump(data,f,indent<span class="hljs-operator">=</span><span class="hljs-number">4</span>)<br></code></pre></td></tr></table></figure><h2 id="数据输出为Gzip"><a href="#数据输出为Gzip" class="headerlink" title="数据输出为Gzip"></a>数据输出为Gzip</h2><figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs fsharp"><span class="hljs-keyword">with</span> gzip.<span class="hljs-keyword">open</span>(output_path,<span class="hljs-string">&quot;wt&quot;</span>) <span class="hljs-keyword">as</span> fp<span class="hljs-operator">:</span><br>        json.dump(json_data,fp,indent<span class="hljs-operator">=</span><span class="hljs-number">4</span>)<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>PythonBasic</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>A Classification Demo for Artifical Nerual Network</title>
     <link href="/2022/08/04/Pytorch-ANN-Classfication/"/>
     <url>/2022/08/04/Pytorch-ANN-Classfication/</url>
@@ -27,7 +65,7 @@
     <link href="/2022/08/04/data-fabric/"/>
     <url>/2022/08/04/data-fabric/</url>
     
-    <content type="html"><![CDATA[<h1 id="Data-Fabric"><a href="#Data-Fabric" class="headerlink" title="Data Fabric"></a>Data Fabric</h1><h2 id="Backgroud"><a href="#Backgroud" class="headerlink" title="Backgroud"></a>Backgroud</h2><p>在企业中由于业务的不断发展，导致有许多无法被有效利用的数据产生，这些数据我们称为暗数据。<br>暗数据产生的原因有很多，基本上都是由于工具的不统一或者技能的不同导致各种各样的数据孤岛，也就产生了许多暗数据</p><h2 id="什么是Data-Fabric"><a href="#什么是Data-Fabric" class="headerlink" title="什么是Data Fabric"></a>什么是Data Fabric</h2><p>Data Fabric 是一个信息网络，数据管理平台</p><ul><li>发现</li><li>治理</li><li>整理</li><li>统筹</li></ul><h2 id="为什么使用Data-Fabric"><a href="#为什么使用Data-Fabric" class="headerlink" title="为什么使用Data Fabric"></a>为什么使用Data Fabric</h2><p>可以给企业带来非常巨大的商业改善</p><h2 id="如何使用Data-Fabric"><a href="#如何使用Data-Fabric" class="headerlink" title="如何使用Data Fabric"></a>如何使用Data Fabric</h2><p><strong>IBM CP4D</strong> 让Data Fabric的概念变为现实</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="Data-Fabric"><a href="#Data-Fabric" class="headerlink" title="Data Fabric"></a>Data Fabric</h1><h2 id="Backgroud"><a href="#Backgroud" class="headerlink" title="Backgroud"></a>Backgroud</h2><p>在企业中由于业务的不断发展，导致有许多无法被有效利用的数据产生，这些数据我们称为暗数据。<br>暗数据产生的原因有很多，基本上都是由于工具的不统一或者技能的不同导致各种各样的<a href="https://www.tibco.com/zh-hans/reference-center/what-is-a-data-silo">数据孤岛</a>，也就产生了许多暗数据</p><h2 id="什么是Data-Fabric"><a href="#什么是Data-Fabric" class="headerlink" title="什么是Data Fabric"></a>什么是Data Fabric</h2><p>Data Fabric 是一个信息网络，数据管理平台</p><ul><li>发现</li><li>治理</li><li>整理</li><li>统筹</li></ul><h2 id="为什么使用Data-Fabric"><a href="#为什么使用Data-Fabric" class="headerlink" title="为什么使用Data Fabric"></a>为什么使用Data Fabric</h2><p>可以给企业带来非常巨大的商业改善</p><h2 id="如何使用Data-Fabric"><a href="#如何使用Data-Fabric" class="headerlink" title="如何使用Data Fabric"></a>如何使用Data Fabric</h2><p><strong>IBM CP4D</strong> 让Data Fabric的概念变为现实</p><p>参考链接：<br>[1] <a href="https://www.ibm.com/downloads/cas/VBENPWJO">https://www.ibm.com/downloads/cas/VBENPWJO</a></p>]]></content>
     
     
     

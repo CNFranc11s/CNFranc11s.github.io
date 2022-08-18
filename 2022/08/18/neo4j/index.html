@@ -16,22 +16,22 @@
   <meta name="author" content="Franc11s">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Han的个人博客">
+    <meta name="description" content="neo4j是noSQL的一种具体产品,在构建知识图谱或其他的非关系型数据中普遍使用 neo4j的安装neo4j的基本操作neo4j中的基本概念 节点  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;节点是neo4j的一个单元,一个节点可以添加一个类型以及添加任意多的属性 节点类型&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;节点类">
 <meta property="og:type" content="article">
-<meta property="og:title" content="A Classification Demo for Artifical Nerual Network">
-<meta property="og:url" content="http://example.com/2022/08/04/Pytorch-ANN-Classfication/index.html">
+<meta property="og:title" content="Neo4j的一些操作笔记">
+<meta property="og:url" content="http://example.com/2022/08/18/neo4j/index.html">
 <meta property="og:site_name" content="Han">
-<meta property="og:description" content="Han的个人博客">
+<meta property="og:description" content="neo4j是noSQL的一种具体产品,在构建知识图谱或其他的非关系型数据中普遍使用 neo4j的安装neo4j的基本操作neo4j中的基本概念 节点  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;节点是neo4j的一个单元,一个节点可以添加一个类型以及添加任意多的属性 节点类型&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;节点类">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-08-03T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-08-04T07:45:25.825Z">
+<meta property="article:published_time" content="2022-08-18T06:44:42.000Z">
+<meta property="article:modified_time" content="2022-08-18T07:02:56.788Z">
 <meta property="article:author" content="Franc11s">
-<meta property="article:tag" content="Pytorch">
+<meta property="article:tag" content="neo4j">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>A Classification Demo for Artifical Nerual Network - Han</title>
+  <title>Neo4j的一些操作笔记 - Han</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -213,7 +213,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="A Classification Demo for Artifical Nerual Network"></span>
+            <span id="subtitle" data-typed-text="Neo4j的一些操作笔记"></span>
           
         </div>
 
@@ -224,8 +224,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-08-04 00:00" pubdate>
-          2022年8月4日 凌晨
+        <time datetime="2022-08-18 14:44" pubdate>
+          2022年8月18日 下午
         </time>
       </span>
     
@@ -236,7 +236,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 字
+          1.3k 字
         
       </span>
     
@@ -247,7 +247,7 @@
         
         
         
-          1 分钟
+          12 分钟
         
       </span>
     
@@ -285,12 +285,26 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">A Classification Demo for Artifical Nerual Network</h1>
+            <h1 style="display: none">Neo4j的一些操作笔记</h1>
             
             
               <div class="markdown-body">
                 
-                
+                <p>neo4j是noSQL的一种具体产品,在构建知识图谱或其他的非关系型数据中普遍使用</p>
+<h2 id="neo4j的安装"><a href="#neo4j的安装" class="headerlink" title="neo4j的安装"></a>neo4j的安装</h2><h2 id="neo4j的基本操作"><a href="#neo4j的基本操作" class="headerlink" title="neo4j的基本操作"></a>neo4j的基本操作</h2><h3 id="neo4j中的基本概念"><a href="#neo4j中的基本概念" class="headerlink" title="neo4j中的基本概念"></a>neo4j中的基本概念</h3><ul>
+<li>节点<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;节点是neo4j的一个单元,一个节点可以添加一个类型以及添加任意多的属性<ul>
+<li>节点类型<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;节点类型可以类比oop中的类,一个节点需要指定类型,比如张三是一个人:<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<code>(n:Person &#123;name:&quot;张三&quot;&#125;) </code><br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;张三养的狗叫做李四:<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<code>(d:Dog &#123;name:&quot;李四&quot;, master:&quot;张三&quot;&#125;)</code></li>
+<li>节点属性<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;上边在类型后边添加的对象就是节点的属性</li>
+</ul>
+</li>
+<li>关系<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;关系表示两个节点之间的关系，关系可以任意指定<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<code>(n) -[:own]-&gt; (d)</code></li>
+</ul>
+<h3 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h3><p>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;下边的指令会创建名为张三的Person节点,无论该节点是否存在<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<code>CREATE (p:Person &#123;name:&quot;张三&quot;&#125;)</code></p>
+<h3 id="修改数据"><a href="#修改数据" class="headerlink" title="修改数据"></a>修改数据</h3><p>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;下边的指令会查询名为张三的Person节点,如果没有则创建<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<code>MERGE (p:Person &#123;name:&quot;张三&quot;&#125;)</code></p>
+<h3 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h3><p>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;删除所有节点,如果节点上有关系则不能被删除<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<code>MATCH (p:Person) DELETE p</code><br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;如果想删除有关系的节点和对应的关系<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<code>MATCH (p:Person) DETACH DELETE p</code>  </p>
+<h3 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h3><p>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<code>MATCH (p:Person) RETURN p</code></p>
+<p>相关连接:<br>[1]: <a target="_blank" rel="noopener" href="https://neo4j.com/developer/cypher/updating/#cypher-merge">https://neo4j.com/developer/cypher/updating/#cypher-merge</a></p>
+
                 
               </div>
             
@@ -302,7 +316,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Pytorch/">#Pytorch</a>
+        <a href="/tags/neo4j/">#neo4j</a>
       
     </div>
   
@@ -314,8 +328,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>A Classification Demo for Artifical Nerual Network</div>
-      <div>http://example.com/2022/08/04/Pytorch-ANN-Classfication/</div>
+      <div>Neo4j的一些操作笔记</div>
+      <div>http://example.com/2022/08/18/neo4j/</div>
     </div>
     <div class="license-meta">
       
@@ -327,7 +341,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年8月4日</div>
+          <div>2022年8月18日</div>
         </div>
       
       
@@ -357,18 +371,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/08/18/BasicPython-json/" title="Python操作JSON文件的一些memo">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Python操作JSON文件的一些memo</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/08/04/data-fabric/" title="Data Fabric">
-                        <span class="hidden-mobile">Data Fabric</span>
+                      <a href="/2022/08/18/BasicPython-json/" title="Python操作JSON文件的一些memo">
+                        <span class="hidden-mobile">Python操作JSON文件的一些memo</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
